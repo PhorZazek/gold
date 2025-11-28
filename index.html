@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Test API</title>
+</head>
+<body>
+
+    <h2>Aktualna cena złota</h2>
+
+    <div>
+        <strong>Cena:</strong> 
+        <span id="cenaEntry">Ładowanie...</span>
+    </div>
+
+    <div>
+        <strong>Data notowania:</strong> 
+        <span id="dataEntry">Ładowanie...</span>
+    </div>
+
+    <script>
+        async function loadData() {
+            try {
+                const response = await fetch("https://phorzazek.pythonanywhere.com/gold_price/");
+                const data = await response.json();
+
+                document.getElementById("cenaEntry").textContent = data.cena;
+                document.getElementById("dataEntry").textContent = data.data;
+
+            } catch (err) {
+                console.error("Błąd API:", err);
+                document.getElementById("cenaEntry").textContent = "Błąd";
+                document.getElementById("dataEntry").textContent = "Błąd";
+            }
+        }
+
+        loadData();
+    </script>
+
+</body>
+</html>
