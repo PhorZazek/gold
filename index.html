@@ -23,9 +23,6 @@
 
 <div class="gold-container">
     <h2>Aktualna cena złota</h2>
-    <div>
-        <span id="cenaEntry">Ładowanie...</span>
-    </div>
 
     <p>Wybierz próbę:</p>
 
@@ -68,7 +65,6 @@ async function chooseGold(prob) {
         // Przeliczenie według próby
         basePrice = ((prob / 1000) * cenaCzyste).toFixed(2);
 
-        document.getElementById("cenaEntry").textContent = data.cena;
         document.getElementById("prob").textContent = prob;
         document.getElementById("cena1g").textContent = basePrice;
 
