@@ -59,10 +59,10 @@ async function chooseGold(prob) {
         const response = await fetch("https://phorzazek.pythonanywhere.com/gold_price/");
         const data = await response.json();
 
-        // Cena złota 999/1000 (czyste)
+        // cena złota 999/1000 (czyste)
         const cenaCzyste = data.cena;
 
-        // Przeliczenie według próby
+        // przeliczenie według próby
         basePrice = ((prob / 1000) * cenaCzyste).toFixed(2);
 
         document.getElementById("prob").textContent = prob;
@@ -82,6 +82,4 @@ function updateTotal() {
     const total = (waga * basePrice).toFixed(2);
     document.getElementById("total").textContent = total;
 }
-
-});
 </script>
